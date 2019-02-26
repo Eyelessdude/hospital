@@ -7,29 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6ef3ef5-caa8-42ad-bae9-462895f43c63" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/log4j.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/DoctorCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Fields.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/PatientStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/HospitalCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-8.0.15.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Hospital_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Hospital_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ae78d1a9-ae84-4e8e-af09-b967975e7d7e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ae78d1a9-ae84-4e8e-af09-b967975e7d7e.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Diagnosis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hospital.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Hospital.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,11 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBManager.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="329">
+              <caret line="178" column="84" selection-start-line="178" selection-start-column="84" selection-end-line="178" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,13 +71,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
+            <state relative-caret-position="360">
+              <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Diagnosis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
+              <folding>
+                <element signature="e#184#185#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+                <element signature="e#269#270#0" expanded="true" />
+                <element signature="e#294#295#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,21 +108,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/HospitalCard.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
+            <state relative-caret-position="1140">
               <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
             </state>
           </provider>
@@ -134,14 +119,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding>
-                <element signature="e#138#139#0" expanded="true" />
-                <element signature="e#158#159#0" expanded="true" />
-                <element signature="e#217#218#0" expanded="true" />
-                <element signature="e#240#241#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Role.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -158,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
+            <state relative-caret-position="345">
               <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -171,22 +159,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/DoctorCategory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="88" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
-              <folding>
-                <element signature="e#188#189#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-                <element signature="e#434#435#0" expanded="true" />
-                <element signature="e#465#466#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="83" selection-start-line="20" selection-start-column="83" selection-end-line="20" selection-end-column="83" />
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -202,6 +175,9 @@
     </option>
   </component>
   <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Role</find>
+    </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
@@ -236,6 +212,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/DoctorCategory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Diagnosis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Util.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java" />
       </list>
     </option>
@@ -266,11 +244,6 @@
             <path>
               <item name="Hospital" type="b2602c69:ProjectViewProjectNode" />
               <item name="Hospital" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Hospital" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hospital" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Hospital" type="b2602c69:ProjectViewProjectNode" />
@@ -354,7 +327,8 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551028847539" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551216298230" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="MySQL" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../usermanagment" />
@@ -445,6 +419,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ua.nure.dudka.hospital.Util" />
+      <module name="Hospital" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ua.nure.dudka.hospital.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.16" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.16" ALTERNATIVE_JRE_ENABLED="false">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/hospital/" />
       <option name="COMMON_VM_ARGUMENTS" value="-Dlog4j.configuration=log4j.properties" />
@@ -522,12 +509,14 @@
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.HospitalCard" />
       <item itemvalue="Application.HospitalCard (1)" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.16" />
       <item itemvalue="Application.ClientManager" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.16" />
+      <item itemvalue="Application.Util" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientManager" />
+        <item itemvalue="Application.Util" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.HospitalCard (1)" />
         <item itemvalue="Application.HospitalCard" />
@@ -546,17 +535,28 @@
       <updated>1550860229324</updated>
       <workItem from="1550860237741" duration="3089000" />
       <workItem from="1550913808778" duration="10857000" />
-      <workItem from="1550995921886" duration="19621000" />
+      <workItem from="1550995921886" duration="20673000" />
+      <workItem from="1551199598443" duration="9178000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33567000" />
+    <option name="totallyTimeSpent" value="43797000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25622058" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25958306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -564,14 +564,14 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3297587" />
+      <window_info anchor="bottom" id="Duplicate detector" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3297587" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
@@ -580,6 +580,7 @@
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.328877" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.3297587" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -598,12 +599,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java</url>
-          <line>69</line>
-          <properties class="ua.nure.dudka.hospital.db.ClientManager" method="findAllByRole">
+          <url>file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Util.java</url>
+          <line>14</line>
+          <properties class="ua.nure.dudka.hospital.Util" method="parseClientAdditionalInfo">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -636,15 +637,15 @@
           </nodes>
           <notes />
           <edges>
-            <edge source="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.client" target="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.role">
-              <point x="0.0" y="-100.0" />
-              <point x="0.0" y="40.0" />
-            </edge>
             <edge source="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.hospital_card" target="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.client">
               <point x="100.66666666666669" y="-112.0" />
               <point x="251.66666666666669" y="355.0" />
               <point x="234.33333333333331" y="355.0" />
               <point x="83.33333333333331" y="100.0" />
+            </edge>
+            <edge source="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.client" target="ae78d1a9-ae84-4e8e-af09-b967975e7d7e.TABLE:hospital.role">
+              <point x="0.0" y="-100.0" />
+              <point x="0.0" y="40.0" />
             </edge>
           </edges>
           <settings layout="Hierarchic Group" zoom="0.7692307692307693" x="151.0" y="302.0" />
@@ -655,6 +656,7 @@
             <Category>Key columns</Category>
             <Category>Columns</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -665,13 +667,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Demo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Demo.java" />
     <entry file="uml://JAVA/ua.nure.dudka.hospital.entity">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -685,7 +681,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="107.5" y="94.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="108.0" y="94.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -693,67 +689,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Pacient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/PatientStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding>
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Doctor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="e#589#590#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Pacient.java" />
+    <entry file="file://$PROJECT_DIR$/web/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Doctor.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/HospitalCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1125">
           <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -767,10 +709,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/PatientStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Role.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="46" selection-start-column="46" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/Diagnosis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="99" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
+          <folding>
+            <element signature="e#184#185#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#294#295#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -781,53 +777,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/DoctorCategory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+        <state relative-caret-position="60">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/constants/DoctorCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="88" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
-          <folding>
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#227#228#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/DBException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding>
-            <element signature="e#138#139#0" expanded="true" />
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/nure/dudka/hospital/db/ClientManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="105" column="6" selection-start-line="105" selection-start-column="6" selection-end-line="105" selection-end-column="6" />
+        <state relative-caret-position="329">
+          <caret line="178" column="84" selection-start-line="178" selection-start-column="84" selection-end-line="178" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

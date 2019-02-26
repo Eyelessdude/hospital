@@ -1,8 +1,8 @@
 package ua.nure.dudka.hospital.db;
 
 import org.apache.log4j.Logger;
+import ua.nure.dudka.hospital.Util;
 import ua.nure.dudka.hospital.constants.DoctorCategory;
-import ua.nure.dudka.hospital.constants.Fields;
 import ua.nure.dudka.hospital.constants.Role;
 import ua.nure.dudka.hospital.entity.Client;
 
@@ -14,6 +14,8 @@ public class ClientManager {
     private static final Logger logger = Logger.getLogger(ClientManager.class);
     private static final String CREATE_CLIENT = "INSERT INTO client VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)";
     private static final String FIND_ALL_BY_ROLE = "SELECT * FROM client WHERE role_id = ?";
+    private static final String FIND_CLIENT_BY_ID = "SELECT * FROM client WHERE id = ?";
+    private static final String FIND_ALL_DOCTOR_PATIENTS = "SELECT client.* FROM client, hospital_card WHERE hospital_card.doctor_id = ? AND client.id = hospital_card.patient_id";
     private DBManager dbManager = DBManager.getInstance();
     private static ClientManager instance;
 
@@ -34,6 +36,11 @@ public class ClientManager {
         ResultSet resultSet = null;
         boolean result = false;
         int k = 1;
+
+        if (!Util.parseClientAdditionalInfo(client)) {
+            logger.error("Invalid format of additional data: " + client.getAdditionalInfo() + " for client" + client);
+            throw new DBException("Invalid format of additional data for this user:  Date format: dd-MM-yyyy or doctor category");
+        }
 
         try {
             connection = dbManager.getConnection();
@@ -67,6 +74,72 @@ public class ClientManager {
         return result;
     }
 
+    public Client findById(int id) throws DBException {
+        Client client = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = dbManager.getConnection();
+            preparedStatement = connection.prepareStatement(FIND_CLIENT_BY_ID);
+            preparedStatement.setInt(1, id);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                client = DBUtil.extractClient(resultSet);
+            } else {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            logger.error("Can't find client with id: " + id + e);
+            throw new DBException("Can't find client with id:" + id, e);
+        } finally {
+            DBUtil.close(resultSet);
+            DBUtil.close(preparedStatement);
+            DBUtil.close(connection);
+        }
+
+        return client;
+    }
+
+    //TODO Move this method to HospitalCardManager
+    public List<Client> findAllDoctorPatients(Client client) throws DBException {
+        if (client.getRoleId() != Role.DOCTOR.getId()) {
+            logger.error("Trying to find patients not for doctor: " + client);
+            throw new DBException("This client isn't a doctor!");
+        }
+        
+        List<Client> clients = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        
+        try {
+            connection = dbManager.getConnection();
+            preparedStatement = connection.prepareStatement(FIND_ALL_DOCTOR_PATIENTS);
+            preparedStatement.setInt(1, client.getId());
+
+            resultSet = preparedStatement.executeQuery();
+            while(resultSet.next()) {
+                clients.add(DBUtil.extractClient(resultSet));
+            }
+
+            if (clients.size() == 0) {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            logger.error("Can't find any patients for doctor: " + client + e);
+            throw new DBException("Can't find any patients for doctor: " + client, e);
+        } finally {
+            DBUtil.close(resultSet);
+            DBUtil.close(preparedStatement);
+            DBUtil.close(connection);
+        }
+
+        return clients;
+    }
+
     public List<Client> findAllByRole(Role role) throws DBException {
         List<Client> clients = new ArrayList<>();
         Connection connection = null;
@@ -90,7 +163,7 @@ public class ClientManager {
                 throw new DBException("Can't find any users with role: " + role.toString());
             }
         } catch (SQLException e) {
-            logger.error("Can't find client with role name: " + role.toString() + " and id: " + role.getId());
+            logger.error("Can't find client with role name: " + role.toString() + " and id: " + role.getId() + e);
             throw new DBException("Can't find client with role: " + role.toString(), e);
         } finally {
             DBUtil.close(resultSet);
@@ -103,9 +176,7 @@ public class ClientManager {
 
     public static void main(String[] args) throws DBException {
         ClientManager clientManager = ClientManager.getInstance();
-        System.out.println("All admins: " + clientManager.findAllByRole(Role.ADMIN));
-        System.out.println("All doctors: " + clientManager.findAllByRole(Role.DOCTOR));
-        System.out.println("All patients: " + clientManager.findAllByRole(Role.PACIENT));
-        System.out.println("All nurses: " + clientManager.findAllByRole(Role.NURSE));
+        Client client = new Client("testAdmin", "test", "and this?", "hope so", 1, "");
+        clientManager.createClient(client);
     }
 }
