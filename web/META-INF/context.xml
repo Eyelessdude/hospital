@@ -1,0 +1,9 @@
+<Context>
+    <Resource name="jdbc/Hospital"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              username="bohdan" password="qwerty"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost/hospital"/>
+</Context>

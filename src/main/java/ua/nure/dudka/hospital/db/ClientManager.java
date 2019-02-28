@@ -173,10 +173,4 @@ public class ClientManager {
 
         return clients;
     }
-
-    public static void main(String[] args) throws DBException {
-        ClientManager clientManager = ClientManager.getInstance();
-        Client client = new Client("testAdmin", "test", "and this?", "hope so", 1, "");
-        clientManager.createClient(client);
-    }
 }
