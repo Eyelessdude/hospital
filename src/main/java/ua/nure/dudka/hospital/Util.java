@@ -10,18 +10,18 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Util {
-    private static Logger logger = Logger.getLogger(Util.class);
+    private static Logger LOG = Logger.getLogger(Util.class);
 
     public static boolean parseClientAdditionalInfo(Client client) {
         boolean isValid = false;
-        int clientRoleId = client.getRoleId();
+        Role clientRole = client.getRole();
         String clientAdditionalInfo = client.getAdditionalInfo();
 
-        if (clientRoleId == Role.PACIENT.getId()) {
+        if (clientRole == Role.PATIENT) {
             isValid = parseDate(clientAdditionalInfo);
-        } else if (clientRoleId == Role.DOCTOR.getId()) {
+        } else if (clientRole == Role.DOCTOR) {
             isValid = parseCategory(clientAdditionalInfo);
-        } else if (clientRoleId == Role.ADMIN.getId() || clientRoleId == Role.NURSE.getId()) {
+        } else if (clientRole == Role.ADMIN || clientRole == Role.NURSE) {
             isValid = clientAdditionalInfo.isEmpty();
         }
 
@@ -34,7 +34,7 @@ public class Util {
             LocalDate.parse(date, formatter);
             return true;
         } catch (DateTimeParseException e) {
-            logger.error("Invalid date type was inserted: " + date);
+            LOG.error("Invalid date type was inserted: " + date);
         }
         return false;
     }

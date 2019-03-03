@@ -17,12 +17,6 @@ public class HospitalCard {
     private List<String> patientMedicines;
     private List<String> patientOperations;
 
-    public HospitalCard(int id, int patientId, String patientStatus) {
-        this.id = id;
-        this.patientId = patientId;
-        this.patientStatus = patientStatus;
-    }
-
     public int getId() {
         return id;
     }

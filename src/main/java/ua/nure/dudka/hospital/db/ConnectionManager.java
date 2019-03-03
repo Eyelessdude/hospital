@@ -9,19 +9,19 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class DBManager {
-    private static final Logger logger = Logger.getLogger(DBManager.class);
-    private static DBManager instance;
+public class ConnectionManager {
+    private static final Logger LOG = Logger.getLogger(ConnectionManager.class);
+    private static ConnectionManager instance;
 
-    public static synchronized DBManager getInstance() {
+    public static synchronized ConnectionManager getInstance() {
         if (instance == null) {
-            instance = new DBManager();
+            instance = new ConnectionManager();
         }
 
         return instance;
     }
 
-    private DBManager() {
+    private ConnectionManager() {
     }
 
     public Connection getConnection() throws SQLException {
@@ -34,7 +34,7 @@ public class DBManager {
             DataSource dataSource = (DataSource) envContext.lookup("jdbc/Hospital");
             connection = dataSource.getConnection();
         } catch (NamingException e) {
-            logger.error("Cannot obtain a connection from the pool", e);
+            LOG.error("Cannot obtain a connection from the pool", e);
         }
 
         return connection;

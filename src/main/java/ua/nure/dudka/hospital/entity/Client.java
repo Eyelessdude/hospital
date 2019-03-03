@@ -1,43 +1,17 @@
 package ua.nure.dudka.hospital.entity;
 
+import ua.nure.dudka.hospital.constants.Role;
+
 public class Client {
     private int id;
     private String login;
     private String password;
     private String name;
     private String surname;
-    private int roleId;
+    private Role role;
     private String additionalInfo;
 
     public Client() {}
-
-    public Client(String login, String password, String name, String surname, int roleId, String additionalInfo) {
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.roleId = roleId;
-        this.additionalInfo = additionalInfo;
-    }
-
-    public Client(int id, String login, String password, String name, String surname, int roleId) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.roleId = roleId;
-    }
-
-    public Client(int id, String login, String password, String name, String surname, int roleId, String additionalInfo) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.roleId = roleId;
-        this.additionalInfo = additionalInfo;
-    }
 
     public int getId() {
         return id;
@@ -79,12 +53,12 @@ public class Client {
         this.surname = surname;
     }
 
-    public int getRoleId() {
-        return roleId;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getAdditionalInfo() {
@@ -97,7 +71,7 @@ public class Client {
 
     @Override
     public String toString() {
-        String client = "Client name: " + name + ", surname: " + surname + " role_id: " + roleId;
+        String client = "Client name: " + name + ", surname: " + surname + " role: " + role.getName();
         if (additionalInfo != null && !additionalInfo.isEmpty()) {
             client += " additional info: " + additionalInfo;
         }
