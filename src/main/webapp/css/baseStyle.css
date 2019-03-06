@@ -1,12 +1,10 @@
+html {
+    overflow-y: scroll;
+}
+
 body {
     text-align: center;
     background-color: #c9ddda;
-}
-
-form {
-    background-color: #bdddda;
-    border: 1px solid #a2a2a2;
-    display: inline-block;
 }
 
 input[type=text], input[type=password] {
@@ -19,15 +17,19 @@ input[type=text], input[type=password] {
 }
 
 button {
-    background-color: #6a7add;
+    background-color: dodgerblue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 80%;
+    width: auto;
 }
 
 button:hover {
     opacity: 0.8;
+}
+
+button.addButton {
+    float: left;
 }

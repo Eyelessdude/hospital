@@ -24,7 +24,7 @@ public class StaffFilter implements Filter {
 
         String clientRole = String.valueOf(session.getAttribute("role"));
 
-        LOG.info("Client role:" + clientRole);
+        LOG.info("Client role: " + clientRole);
 
         if (clientRole.equals(DOCTOR_ROLE) || clientRole.equals(NURSE_ROLE)) {
             filterChain.doFilter(req, servletResponse);

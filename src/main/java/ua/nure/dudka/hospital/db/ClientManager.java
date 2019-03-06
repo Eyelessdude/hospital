@@ -15,7 +15,8 @@ public class ClientManager {
             "FROM client LEFT JOIN role ON client.role_id = role.id WHERE login=? AND password=?";
     private static final String FIND_ALL_DOCTOR_PATIENTS = "SELECT client.* FROM client, hospital_card WHERE hospital_card.doctor_id = ? AND client.id = hospital_card.patient_id";
     private static final String CREATE_CLIENT = "INSERT INTO client VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)";
-    private static final String FIND_ALL_BY_ROLE = "SELECT * FROM client WHERE role_id = ?";
+    private static final String FIND_ALL_BY_ROLE = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name, additional_info FROM client " +
+            "LEFT JOIN role ON client.role_id = role.id WHERE role.name=?";
     private static final String FIND_CLIENT_BY_ID = "SELECT * FROM client WHERE id = ?";
     private ConnectionManager connectionManager = ConnectionManager.getInstance();
     private static ClientManager instance;
@@ -151,7 +152,7 @@ public class ClientManager {
             connection = connectionManager.getConnection();
             preparedStatement = connection.prepareStatement(FIND_ALL_BY_ROLE);
 
-            preparedStatement.setInt(1, role.getId());
+            preparedStatement.setString(1, role.getName());
 
             resultSet = preparedStatement.executeQuery();
 

@@ -13,14 +13,15 @@ public final class DBUtil {
 
     public static Client extractClient(ResultSet resultSet) throws SQLException {
         Client client = new Client();
-        client.setId(resultSet.getInt(Fields.ID));
-        client.setLogin(resultSet.getString(Fields.LOGIN));
-        client.setPassword(resultSet.getString(Fields.PASSWORD));
-        client.setName(resultSet.getString(Fields.NAME));
-        client.setSurname(resultSet.getString(Fields.SURNAME));
-        Role role = Role.getRoleByName((resultSet.getString(Fields.ROLE)));
+        int k = 1;
+        client.setId(resultSet.getInt(k++));
+        client.setLogin(resultSet.getString(k++));
+        client.setPassword(resultSet.getString(k++));
+        client.setName(resultSet.getString(k++));
+        client.setSurname(resultSet.getString(k++));
+        Role role = Role.getRoleByName((resultSet.getString(k++)));
         client.setRole(role);
-        client.setAdditionalInfo(resultSet.getString(Fields.ADDITIONAL_INFO));
+        client.setAdditionalInfo(resultSet.getString(k));
 
         return client;
     }

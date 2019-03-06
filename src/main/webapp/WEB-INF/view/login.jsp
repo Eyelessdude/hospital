@@ -10,6 +10,7 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/baseStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/loginFormStyle.css">
 </head>
 <body>
 <form action="login" method="post">

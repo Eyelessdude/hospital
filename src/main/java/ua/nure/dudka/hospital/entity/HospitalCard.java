@@ -1,5 +1,7 @@
 package ua.nure.dudka.hospital.entity;
 
+import ua.nure.dudka.hospital.constants.PatientStatus;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -7,10 +9,10 @@ import java.util.List;
 public class HospitalCard {
     private static final String SPLITTER = "/";
     private int id;
-    private int doctorId;
-    private int patientId;
+    private Client doctor;
+    private Client patient;
     private int nurseId;
-    private String patientStatus;
+    private PatientStatus patientStatus;
     private String patientDiagnosis;
     private String patientFinalDiagnosis;
     private List<String> patientProcedures;
@@ -25,20 +27,20 @@ public class HospitalCard {
         this.id = id;
     }
 
-    public int getDoctorId() {
-        return doctorId;
+    public Client getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
+    public void setDoctorId(Client doctor) {
+        this.doctor = doctor;
     }
 
-    public int getPatientId() {
-        return patientId;
+    public Client getPatient() {
+        return patient;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setPatientId(Client patient) {
+        this.patient = patient;
     }
 
     public int getNurseId() {
@@ -49,11 +51,11 @@ public class HospitalCard {
         this.nurseId = nurseId;
     }
 
-    public String getPatientStatus() {
+    public PatientStatus getPatientStatus() {
         return patientStatus;
     }
 
-    public void setPatientStatus(String patientStatus) {
+    public void setPatientStatus(PatientStatus patientStatus) {
         this.patientStatus = patientStatus;
     }
 

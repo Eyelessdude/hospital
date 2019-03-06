@@ -23,7 +23,7 @@ public class AdminFilter implements Filter {
 
         String clientRole = String.valueOf(session.getAttribute("role"));
 
-        LOG.info("Client role:" + clientRole);
+        LOG.info("Client role: " + clientRole);
 
         if (clientRole.equals(ADMIN_ROLE)) {
             filterChain.doFilter(req, servletResponse);
