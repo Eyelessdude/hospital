@@ -14,7 +14,9 @@
 </head>
 <body>
 <div class="header">
-    <h2>Hello, ${sessionScope.login}</h2>
+    <c:if test="${not empty sessionScope.login}">
+        <h2>Hello, ${sessionScope.login}</h2>
+    </c:if>
 
     <div class="header-right">
         <c:choose>
@@ -25,7 +27,7 @@
                 <a href="${contextPath}/admin/hospitalCard">View Hospital cards</a>
             </c:when>
             <c:when test="${sessionScope.role=='nurse' || sessionScope.role=='doctor'}">
-                <a href="${contextPath}/staff/page" class="homePage">Home page</a>
+                <a href="${contextPath}/staff/page" class="active">Home page</a>
                 <a href="${contextPath}/staff/patients">View Patients</a>
                 <a href="${contextPath}/staff/hospitalCard">View Hospital cards</a>
             </c:when>

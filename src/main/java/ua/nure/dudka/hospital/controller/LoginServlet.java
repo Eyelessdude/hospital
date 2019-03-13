@@ -31,7 +31,9 @@ public class LoginServlet extends HttpServlet {
         Client client = clientService.getClientByLoginAndPassword(login, password);
 
         if (client == null) {
-            //TODO Redirect to error page
+            req.getSession().setAttribute("error", "Can't find user with such login and password!");
+            req.getRequestDispatcher("/WEB-INF/view/errorPage.jsp").forward(req, resp);
+            return;
         }
 
         HttpSession session = req.getSession();

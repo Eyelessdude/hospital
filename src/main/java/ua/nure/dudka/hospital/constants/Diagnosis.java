@@ -2,7 +2,7 @@ package ua.nure.dudka.hospital.constants;
 
 public enum Diagnosis {
     //TODO Add realization
-    ASTHMA("Asthma"), DEPRESSION("DEPRESSION"), HEADACHE("Headache"), HYPERTENSION("HYPERTENSION");
+    ASTHMA("Asthma"), DEPRESSION("Depression"), HEADACHE("Headache"), HYPERTENSION("Hypertension");
 
     private String diagnosis;
 
