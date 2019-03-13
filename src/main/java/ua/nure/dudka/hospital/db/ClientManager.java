@@ -11,11 +11,10 @@ import java.util.List;
 
 public class ClientManager {
     private static final Logger LOG = Logger.getLogger(ClientManager.class);
-    private static final String FIND_CLIENT_BY_LOGIN_AND_PASSWORD = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name, additional_info " +
+    private static final String FIND_CLIENT_BY_LOGIN_AND_PASSWORD = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name role_name, additional_info " +
             "FROM client LEFT JOIN role ON client.role_id = role.id WHERE login=? AND password=?";
-    private static final String FIND_ALL_DOCTOR_PATIENTS = "SELECT client.* FROM client, hospital_card WHERE hospital_card.doctor_id = ? AND client.id = hospital_card.patient_id";
     private static final String CREATE_CLIENT = "INSERT INTO client VALUES(DEFAULT, ?, ?, ?, ?, ?, ?)";
-    private static final String FIND_ALL_BY_ROLE = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name, additional_info FROM client " +
+    private static final String FIND_ALL_BY_ROLE = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name role_name, additional_info FROM client " +
             "LEFT JOIN role ON client.role_id = role.id WHERE role.name=?";
     private static final String FIND_CLIENT_BY_ID = "SELECT * FROM client WHERE id = ?";
     private ConnectionManager connectionManager = ConnectionManager.getInstance();
@@ -103,43 +102,6 @@ public class ClientManager {
         }
 
         return client;
-    }
-
-    //TODO Move this method to HospitalCardManager
-    public List<Client> findAllDoctorPatients(Client client) throws DBException {
-        if (client.getRole() != Role.DOCTOR) {
-            LOG.error("Trying to find patients not for doctor: " + client);
-            throw new DBException("This client isn't a doctor!");
-        }
-        
-        List<Client> clients = new ArrayList<>();
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        
-        try {
-            connection = connectionManager.getConnection();
-            preparedStatement = connection.prepareStatement(FIND_ALL_DOCTOR_PATIENTS);
-            preparedStatement.setInt(1, client.getId());
-
-            resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()) {
-                clients.add(DBUtil.extractClient(resultSet));
-            }
-
-            if (clients.size() == 0) {
-                throw new SQLException();
-            }
-        } catch (SQLException e) {
-            LOG.error("Can't find any patients for doctor: " + client + e);
-            throw new DBException("Can't find any patients for doctor: " + client, e);
-        } finally {
-            DBUtil.close(resultSet);
-            DBUtil.close(preparedStatement);
-            DBUtil.close(connection);
-        }
-
-        return clients;
     }
 
     public List<Client> findAllByRole(Role role) throws DBException {

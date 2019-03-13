@@ -15,4 +15,19 @@ public enum Diagnosis {
     public String toString() {
         return diagnosis;
     }
+
+    public static Diagnosis getDiagnosisByName(String name) {
+        Diagnosis findDiagnosis = null;
+        for (Diagnosis diagnosis : values()) {
+            if (diagnosis.getName().equals(name)) {
+                findDiagnosis = diagnosis;
+            }
+        }
+
+        return findDiagnosis;
+    }
+
+    private String getName() {
+        return diagnosis;
+    }
 }

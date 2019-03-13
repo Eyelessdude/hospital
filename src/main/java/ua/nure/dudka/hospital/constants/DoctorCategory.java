@@ -15,4 +15,19 @@ public enum DoctorCategory {
     public String toString() {
         return category;
     }
+
+    public static DoctorCategory getDoctorCategoryByName(String name) {
+        DoctorCategory findCategory = null;
+        for (DoctorCategory category : values()) {
+            if (category.getName().equals(name)) {
+                findCategory = category;
+            }
+        }
+
+        return findCategory;
+    }
+
+    private String getName() {
+        return category;
+    }
 }

@@ -1,5 +1,6 @@
 package ua.nure.dudka.hospital.entity;
 
+import ua.nure.dudka.hospital.constants.Diagnosis;
 import ua.nure.dudka.hospital.constants.PatientStatus;
 
 import java.util.ArrayList;
@@ -11,10 +12,10 @@ public class HospitalCard {
     private int id;
     private Client doctor;
     private Client patient;
-    private int nurseId;
+    private Client nurse;
     private PatientStatus patientStatus;
-    private String patientDiagnosis;
-    private String patientFinalDiagnosis;
+    private Diagnosis patientDiagnosis;
+    private Diagnosis patientFinalDiagnosis;
     private List<String> patientProcedures;
     private List<String> patientMedicines;
     private List<String> patientOperations;
@@ -31,7 +32,7 @@ public class HospitalCard {
         return doctor;
     }
 
-    public void setDoctorId(Client doctor) {
+    public void setDoctor(Client doctor) {
         this.doctor = doctor;
     }
 
@@ -39,16 +40,16 @@ public class HospitalCard {
         return patient;
     }
 
-    public void setPatientId(Client patient) {
+    public void setPatient(Client patient) {
         this.patient = patient;
     }
 
-    public int getNurseId() {
-        return nurseId;
+    public Client getNurse() {
+        return nurse;
     }
 
-    public void setNurseId(int nurseId) {
-        this.nurseId = nurseId;
+    public void setNurse(Client nurse) {
+        this.nurse = nurse;
     }
 
     public PatientStatus getPatientStatus() {
@@ -59,19 +60,19 @@ public class HospitalCard {
         this.patientStatus = patientStatus;
     }
 
-    public String getPatientDiagnosis() {
+    public Diagnosis getPatientDiagnosis() {
         return patientDiagnosis;
     }
 
-    public void setPatientDiagnosis(String patientDiagnosis) {
+    public void setPatientDiagnosis(Diagnosis patientDiagnosis) {
         this.patientDiagnosis = patientDiagnosis;
     }
 
-    public String getPatientFinalDiagnosis() {
+    public Diagnosis getPatientFinalDiagnosis() {
         return patientFinalDiagnosis;
     }
 
-    public void setPatientFinalDiagnosis(String patientFinalDiagnosis) {
+    public void setPatientFinalDiagnosis(Diagnosis patientFinalDiagnosis) {
         this.patientFinalDiagnosis = patientFinalDiagnosis;
     }
 
@@ -99,10 +100,10 @@ public class HospitalCard {
         this.patientOperations = patientOperations;
     }
 
-    private static List<String> parseData(String data) {
+    public static List<String> parseData(String data) {
         List<String> proceduresList = new ArrayList<>();
 
-        if (!data.isEmpty()) {
+        if (data != null && !data.isEmpty()) {
             proceduresList = Arrays.asList(data.split(SPLITTER));
         }
 

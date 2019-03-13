@@ -10,10 +10,9 @@
 <html>
 <head>
     <title>Staff page</title>
+    <link rel="stylesheet" href="${contextPath}/css/baseStyle.css">
 </head>
 <body>
-<form action="logout">
-    <button type="submit">Logout</button>
-</form>
+
 </body>
 </html>

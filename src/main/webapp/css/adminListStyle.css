@@ -7,6 +7,6 @@
 }
 
 .clientForm {
-    margin-left: 43%;
-    width: 200px;
+    margin-left: 40%;
+    width: fit-content;
 }

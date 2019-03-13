@@ -20,7 +20,7 @@
 <form class="clientForm">
     <c:forEach var="client" items="${sessionScope.clientsList}">
         <div class="clientsDiv">
-            <p>Name: ${client.getName()} </p>
+            <p>Name: ${client.getName()}</p>
             <p>Surname: ${client.getSurname()}</p>
             <c:choose>
                 <c:when test="${sessionScope.clientGetRole=='doctor'}">
