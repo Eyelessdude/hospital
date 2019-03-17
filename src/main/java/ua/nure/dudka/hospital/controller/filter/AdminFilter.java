@@ -27,11 +27,11 @@ public class AdminFilter implements Filter {
 
         String clientRole = String.valueOf(session.getAttribute("role"));
 
-        LOG.info("Client role: " + clientRole);
-
         if (clientRole.equals(ADMIN_ROLE)) {
+            LOG.info("Client role: " + clientRole + " logged in");
             filterChain.doFilter(req, servletResponse);
         } else {
+            LOG.warn("Access denied. Trying to access admin page");
             HttpServletResponse resp = (HttpServletResponse) servletResponse;
             resp.sendRedirect(servletRequest.getServletContext().getContextPath() + "/logout");
         }

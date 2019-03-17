@@ -27,7 +27,7 @@ public enum PatientStatus {
         return findStatus;
     }
 
-    private String getName() {
+    public String getName() {
         return status;
     }
 }

@@ -33,3 +33,8 @@ button:hover {
 button.addButton {
     float: left;
 }
+
+.clickAbleDiv {
+    text-decoration: none;
+    color: #000;
+}

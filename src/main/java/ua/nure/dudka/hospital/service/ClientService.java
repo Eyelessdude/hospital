@@ -12,6 +12,18 @@ public class ClientService {
     private static final ClientManager clientManager = ClientManager.getInstance();
     private static final Logger LOG = Logger.getLogger(ClientService.class);
 
+    public boolean insertClient(Client client) {
+        boolean result = false;
+
+        try {
+            result = clientManager.createClient(client);
+        } catch (DBException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
     public Client getClientByLoginAndPassword(String login, String password) {
         Client client = null;
 
@@ -34,5 +46,17 @@ public class ClientService {
         }
 
         return clients;
+    }
+
+    public Client getClientByLogin(String login) {
+        Client client = null;
+
+        try {
+            client = clientManager.findByLogin(login);
+        } catch (DBException e) {
+            e.printStackTrace();
+        }
+
+        return client;
     }
 }

@@ -14,6 +14,6 @@
 </head>
 <body>
 <h1>An error occurred!</h1>
-<h3>${sessionScope.error}</h3>
+<h3>${requestScope.error}</h3>
 </body>
 </html>

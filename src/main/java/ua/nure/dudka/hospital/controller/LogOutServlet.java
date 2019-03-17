@@ -27,8 +27,9 @@ public class LogOutServlet extends HttpServlet {
         LOG.info("Client = " + session.getAttribute("login"));
         if (session != null) {
             session.invalidate();
+            LOG.info("Client logged out");
         }
-        System.out.println(getServletContext().getContextPath());
+
         resp.sendRedirect(getServletContext().getContextPath() + "/login");
     }
 }

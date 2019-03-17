@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>Admin page</title>
@@ -15,15 +16,11 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/baseStyle.css">
 </head>
 <body>
-<h3>Patients with undetermined status</h3>
-<form class="clientForm">
-    <c:forEach var="client" items="${sessionScope.patients}">
-        <div class="clientsDiv">
-            <p>Name: ${client.getName()} </p>
-            <p>Surname: ${client.getSurname()}</p>
-            <p>Date of birth: ${client.getAdditionalInfo()}</p>
-        </div>
-    </c:forEach>
+<form action="${contextPath}/admin/addClient">
+    <button type="submit">Add new client</button>
+</form>
+<form action="${contextPath}/admin/addHospitalCard">
+    <button type="submit">Add new hospital card</button>
 </form>
 </body>
 </html>

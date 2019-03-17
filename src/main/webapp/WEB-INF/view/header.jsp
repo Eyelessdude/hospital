@@ -27,8 +27,7 @@
                 <a href="${contextPath}/admin/hospitalCard">View Hospital cards</a>
             </c:when>
             <c:when test="${sessionScope.role=='nurse' || sessionScope.role=='doctor'}">
-                <a href="${contextPath}/staff/page" class="active">Home page</a>
-                <a href="${contextPath}/staff/patients">View Patients</a>
+                <a href="${contextPath}/staff/patients" class="active">View Patients</a>
                 <a href="${contextPath}/staff/hospitalCard">View Hospital cards</a>
             </c:when>
         </c:choose>

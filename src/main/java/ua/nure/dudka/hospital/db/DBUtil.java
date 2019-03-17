@@ -84,4 +84,6 @@ public final class DBUtil {
         patient.setAdditionalInfo(resultSet.getString(k++));
         return k;
     }
+
+
 }

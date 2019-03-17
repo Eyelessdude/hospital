@@ -17,6 +17,8 @@ public class ClientManager {
     private static final String FIND_ALL_BY_ROLE = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name role_name, additional_info FROM client " +
             "LEFT JOIN role ON client.role_id = role.id WHERE role.name=?";
     private static final String FIND_CLIENT_BY_ID = "SELECT * FROM client WHERE id = ?";
+    private static final String FIND_CLIENT_BY_LOGIN = "SELECT client.id, client.login, client.password, client.name, client.surname, role.name role_name, additional_info" +
+            " FROM client LEFT JOIN role ON client.role_id = role.id WHERE login = ?";
     private ConnectionManager connectionManager = ConnectionManager.getInstance();
     private static ClientManager instance;
 
@@ -51,8 +53,8 @@ public class ClientManager {
             preparedStatement.setString(k++, client.getPassword());
             preparedStatement.setString(k++, client.getName());
             preparedStatement.setString(k++, client.getSurname());
-            preparedStatement.setString(k++, client.getRole().getName());
-            preparedStatement.setString(k++, client.getAdditionalInfo());
+            preparedStatement.setInt(k++, client.getRole().getId());
+            preparedStatement.setString(k, client.getAdditionalInfo());
 
             if (preparedStatement.executeUpdate() > 0) {
                 resultSet = preparedStatement.getGeneratedKeys();
@@ -75,16 +77,16 @@ public class ClientManager {
         return result;
     }
 
-    public Client findById(int id) throws DBException {
-        Client client = null;
+    public Client findByLogin(String login) throws DBException {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        Client client = null;
 
         try {
             connection = connectionManager.getConnection();
-            preparedStatement = connection.prepareStatement(FIND_CLIENT_BY_ID);
-            preparedStatement.setInt(1, id);
+            preparedStatement = connection.prepareStatement(FIND_CLIENT_BY_LOGIN);
+            preparedStatement.setString(1, login);
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
@@ -93,8 +95,8 @@ public class ClientManager {
                 throw new SQLException();
             }
         } catch (SQLException e) {
-            LOG.error("Can't find client with id: " + id + e);
-            throw new DBException("Can't find client with id:" + id, e);
+            LOG.error("Can't find client with login: " + login + e);
+            throw new DBException("Can't find client with login:" + login, e);
         } finally {
             DBUtil.close(resultSet);
             DBUtil.close(preparedStatement);
@@ -139,10 +141,10 @@ public class ClientManager {
     }
 
     public Client findByLoginAndPassword(String login, String password) throws DBException {
-        Client client = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+        Client client = null;
 
         try {
             connection = connectionManager.getConnection();

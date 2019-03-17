@@ -9,6 +9,7 @@ import java.util.List;
 
 public class HospitalCard {
     private static final String SPLITTER = "/";
+    private static final int STRING_START = 0;
     private int id;
     private Client doctor;
     private Client patient;
@@ -104,6 +105,10 @@ public class HospitalCard {
         List<String> proceduresList = new ArrayList<>();
 
         if (data != null && !data.isEmpty()) {
+            if (SPLITTER.equals(data.substring(data.length() - 1))) {
+                data = data.substring(STRING_START, data.length() - 1);
+            }
+
             proceduresList = Arrays.asList(data.split(SPLITTER));
         }
 

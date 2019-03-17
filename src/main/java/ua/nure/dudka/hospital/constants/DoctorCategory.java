@@ -27,7 +27,7 @@ public enum DoctorCategory {
         return findCategory;
     }
 
-    private String getName() {
+    public String getName() {
         return category;
     }
 }
