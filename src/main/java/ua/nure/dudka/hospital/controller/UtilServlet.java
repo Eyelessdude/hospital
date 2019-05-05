@@ -39,11 +39,25 @@ public class UtilServlet {
 
     }
 
+    private int checkId(HttpServletRequest req) {
+        int id = 0;
+
+        String idReq = req.getParameter("id");
+
+        if (idReq != null && !idReq.isEmpty()) {
+            id = Integer.parseInt(req.getParameter("id"));
+        }
+
+        return id;
+    }
+
     private List<Client> getListByRole(Role role) {
         return clientService.getAllByRole(role);
     }
 
     public Client setClient(HttpServletRequest req) {
+        int clientId = checkId(req);
+
         Client client = new Client();
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
@@ -53,6 +67,7 @@ public class UtilServlet {
         String additionalInfo = req.getParameter("additionalInfo");
         DoctorCategory doctorCategory = DoctorCategory.getDoctorCategoryByName(req.getParameter("docCategory"));
 
+        client.setId(clientId);
         client.setName(name);
         client.setSurname(surname);
         client.setLogin(login);
@@ -69,13 +84,9 @@ public class UtilServlet {
 
     public HospitalCard setHospitalCard(HttpServletRequest req) {
         HospitalCard hospitalCard = new HospitalCard();
-        int id = 0;
 
-        String idReq = req.getParameter("id");
+        int cardId = checkId(req);
 
-        if (idReq != null && !idReq.isEmpty()) {
-            id = Integer.parseInt(req.getParameter("id"));
-        }
         String nurseLogin = req.getParameter("nurse");
 
         Client doctor = clientService.getClientByLogin(req.getParameter("doctor"));
@@ -91,7 +102,7 @@ public class UtilServlet {
         String operation = req.getParameter("operation");
         String procedure = req.getParameter("procedure");
 
-        hospitalCard.setId(id);
+        hospitalCard.setId(cardId);
         hospitalCard.setDoctor(doctor);
         hospitalCard.setPatient(patient);
         hospitalCard.setNurse(nurse);

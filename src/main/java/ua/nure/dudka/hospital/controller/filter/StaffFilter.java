@@ -17,6 +17,11 @@ public class StaffFilter implements Filter {
     private static final String NURSE_ROLE = Role.NURSE.getName();
 
     @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
@@ -35,5 +40,10 @@ public class StaffFilter implements Filter {
             HttpServletResponse resp = (HttpServletResponse) servletResponse;
             resp.sendRedirect(servletRequest.getServletContext().getContextPath() + "/logout");
         }
+    }
+
+    @Override
+    public void destroy() {
+
     }
 }

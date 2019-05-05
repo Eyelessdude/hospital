@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HospitalCardManager {
-    private static final String FIND_ALL_DOCTOR_PATIENTS = "SELECT cl.id, cl.login, cl.password, cl.name, cl.surname, r.name role_name, additional_info FROM hospital_card LEFT JOIN client cl on hospital_card.patient_id = cl.id LEFT JOIN role r on cl.role_id = r.id WHERE doctor_id=?";
+    private static final String FIND_ALL_DOCTOR_PATIENTS = "SELECT cl.id, cl.login, cl.password, cl.name, cl.surname, r.name role_name, additional_info FROM hospital_card LEFT JOIN client cl on hospital_card.patient_id = cl.id LEFT JOIN role r on cl.role_id = r.id WHERE doctor_id=? OR nurse_id=?";
     private static final String FIND_ALL_HOSPITAL_CARDS = "SELECT hosp.id, doc.id, doc.login, doc.password, doc.name,  doc.surname, doc_role.name role_name, doc.additional_info, " +
             "pat.id, pat.login, pat.password, pat.name, pat.surname,  pat_role.name role_name, pat.additional_info, " +
             "nurse.id, nurse.login, nurse.password, nurse.name, nurse.surname, nurse_role.name role_name, nurse.additional_info, " +
@@ -43,7 +43,7 @@ public class HospitalCardManager {
             "LEFT JOIN client nurse ON hosp.nurse_id = nurse.id " +
             "LEFT JOIN role doc_role ON doc.role_id = doc_role.id " +
             "LEFT JOIN role pat_role ON pat.role_id = pat_role.id " +
-            "LEFT JOIN role nurse_role ON nurse.role_id = nurse_role.id WHERE hosp.doctor_id=?";
+            "LEFT JOIN role nurse_role ON nurse.role_id = nurse_role.id WHERE hosp.doctor_id=? OR hosp.nurse_id=?";
     private static final String CREATE_HOSPITAL_CARD = "INSERT INTO hospital_card VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_HOSPITAL_CARD = "UPDATE hospital_card SET doctor_id = ?, patient_id = ?, nurse_id = ?, patient_status = ?, patient_diagnosis = ?, patient_final_diagnosis = ?, patient_medicine = ?, patient_operations = ?, patient_procedures = ? WHERE id=?";
     private ConnectionManager connectionManager = ConnectionManager.getInstance();
@@ -98,6 +98,7 @@ public class HospitalCardManager {
             connection = connectionManager.getConnection();
             preparedStatement = connection.prepareStatement(FIND_ALL_DOCTOR_PATIENTS);
             preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -138,8 +139,18 @@ public class HospitalCardManager {
                 preparedStatement.setNull(k++, Types.INTEGER);
             }
             preparedStatement.setString(k++, hospitalCard.getPatientStatus().getName());
-            preparedStatement.setString(k++, hospitalCard.getPatientDiagnosis().getName());
-            preparedStatement.setString(k++, hospitalCard.getPatientFinalDiagnosis().getName());
+
+            if (hospitalCard.getPatientDiagnosis() != null) {
+                preparedStatement.setString(k++, hospitalCard.getPatientDiagnosis().getName());
+            } else {
+                preparedStatement.setNull(k++, Types.VARCHAR);
+            }
+
+            if (hospitalCard.getPatientFinalDiagnosis() != null) {
+                preparedStatement.setString(k++, hospitalCard.getPatientFinalDiagnosis().getName());
+            } else {
+                preparedStatement.setNull(k++, Types.VARCHAR);
+            }
 
             String medicine = String.join(SEPARATOR, hospitalCard.getPatientMedicines());
             preparedStatement.setString(k++, medicine);
@@ -209,6 +220,7 @@ public class HospitalCardManager {
             preparedStatement = connection.prepareStatement(FIND_HOSPITAL_CARD_BY_DOCTOR_ID);
 
             preparedStatement.setInt(1, id);
+            preparedStatement.setInt(2, id);
 
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

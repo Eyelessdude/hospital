@@ -14,13 +14,27 @@
     <title>All ${requestScope.clientGetRole}s</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/adminListStyle.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/baseStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function sort() {
+            var $divs = $('form.clientForm').get().sort(function(a,b){
+                var aKey = +$(a).find('p.clientsDiv').text(),
+                    bKey = +$(b).find('p.clientsDiv').text();
+                return aKey - bKey;
+            });
+            $('body').append($divs);
+        }
+    </script>
 </head>
 <body>
 <h3>List of all ${requestScope.clientGetRole}s:</h3>
 
+<c:if test="${sessionScope.role =='admin'}">
+    <a href="${contextPath}/admin/sortClients?clientGetRole=${requestScope.clientGetRole}" class="active">Sort clients</a>
+</c:if>
 <form class="clientForm">
     <c:forEach var="client" items="${requestScope.clientsList}">
-        <div class="clientsDiv">
+        <div id="clientDiv" class="clientsDiv">
             <p>Name: ${client.getName()}</p>
             <p>Surname: ${client.getSurname()}</p>
             <c:choose>

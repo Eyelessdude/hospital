@@ -5,7 +5,7 @@
   Time: 12:09 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="header.jsp"/>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/baseStyle.css">
 </head>
 <body>
-<form action="${contextPath}${action}" method="post">
+<form action="${contextPath}${action}" method="post" accept-charset="UTF-8">
     <div class="center">
         <input type="hidden" name="id" value="${requestScope.hospitalCard.getId()}">
 
@@ -62,6 +62,7 @@
 
         <span>Select current patient diagnosis</span>
         <select name="currentDiagnosis">
+            <option disabled selected value>No diagnosis</option>
             <c:forEach var="value" items="${requestScope.diagnoses}">
                 <option value="${value.getName()}"
                         <c:if test="${value.getName() == hospitalCard.getPatientDiagnosis().getName()}">selected</c:if>>${value.getName()}</option>
@@ -72,6 +73,7 @@
 
         <span>Select final patient diagnosis</span>
         <select name="finalDiagnosis">
+            <option disabled selected value>No final diagnosis</option>
             <c:forEach var="value" items="${requestScope.diagnoses}">
                 <option value="${value.getName()}"
                         <c:if test="${value.getName() == hospitalCard.getPatientFinalDiagnosis().getName()}">selected</c:if>>${value.getName()}</option>

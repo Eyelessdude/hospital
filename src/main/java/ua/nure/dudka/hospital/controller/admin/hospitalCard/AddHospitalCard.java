@@ -28,7 +28,15 @@ public class AddHospitalCard extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HospitalCard hospitalCard = utilServlet.setHospitalCard(req);
+        HospitalCard hospitalCard;
+        try {
+            hospitalCard = utilServlet.setHospitalCard(req);
+        } catch (NullPointerException e) {
+            LOG.error("Can't set hospital card. Error: " + e);
+            req.setAttribute("error", "An error occurred. Please, try again");
+            req.getRequestDispatcher("/WEB-INF/view/errorPage.jsp").forward(req, resp);
+            return;
+        }
         if (!hospitalCardService.insertHospitalCard(hospitalCard)) {
             LOG.error("Can't insert hospital card: " + hospitalCard);
             req.setAttribute("error", "Can't insert hospital card!");

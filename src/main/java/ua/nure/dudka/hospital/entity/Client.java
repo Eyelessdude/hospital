@@ -11,7 +11,8 @@ public class Client {
     private Role role;
     private String additionalInfo;
 
-    public Client() {}
+    public Client() {
+    }
 
     public int getId() {
         return id;
@@ -77,5 +78,9 @@ public class Client {
         }
 
         return client;
+    }
+
+    public int compareTo(Client client) {
+        return this.getName().compareToIgnoreCase(client.getName());
     }
 }
